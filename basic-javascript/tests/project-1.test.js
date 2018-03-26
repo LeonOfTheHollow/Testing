@@ -17,7 +17,7 @@ describe('Project-1 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(multiplyByTen, 'function');
     });
-    it('should return a Number multiplied by ten', () => {
+    it('should return a Number multiplied by ten.', () => {
       const testNumbers = [2, 3, 4, 5, 10];
       testNumbers.forEach(v => {
         assert.typeOf(multiplyByTen(v), 'Number');
@@ -31,7 +31,7 @@ describe('Project-1 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(subtractFive, 'function');
     });
-    it('should return a number five less than the given number', () => {
+    it('should return a number five less than the given number.', () => {
       const testNumbers = [2, 3, 4, 5, 10];
       testNumbers.forEach(v => {
         assert.typeOf(subtractFive(v), 'Number');
@@ -45,18 +45,27 @@ describe('Project-1 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(areSameLength, 'function');
     });
+    it('should return a Boolean true or false', () => {
+      assert.typeOf(areSameLength('Test', 'Test'), 'Boolean');
+    });
+    it('should return true if both strings are of the same length.', () => {
+      assert.isTrue(areSameLength('Test String One', 'Test String Two'));
+    });
+    it('should return false if both strings are of differing lengths.', () => {
+      assert.isFalse(areSameLength('Test String', 'Another test string...'));
+    });
   });
 
   describe('`areEqual`', () => {
+    const areEqual = funcs.areEqual;
     it('should be a function', () => {
-      const areEqual = funcs.areEqual;
       assert.typeOf(areEqual, 'function');
     });
   });
 
   describe('`lessThanNinety`', () => {
+    const lessThanNinety = funcs.lessThanNinety;
     it('should be a function', () => {
-      const lessThanNinety = funcs.lessThanNinety;
       assert.typeOf(lessThanNinety, 'function');
     });
   });
