@@ -1,4 +1,4 @@
-/* eslint-disable prefer-destructuring */
+/* eslint-disable prefer-destructuring, arrow-parens */
 
 const assert = require('chai').assert;
 const funcs = require('../src/project-2');
@@ -8,6 +8,13 @@ describe('Project-2 Functions', () => {
     const getBiggest = funcs.getBiggest;
     it('should be a function', () => {
       assert.typeOf(getBiggest, 'function');
+    });
+    it('should return a number', () => {
+      assert.typeOf(getBiggest(2, 3), 'number');
+    });
+    it('should return the larger of two numbers', () => {
+      assert.strictEqual(getBiggest(3, 2), 3);
+      assert.strictEqual(getBiggest(1, 7), 7);
     });
   });
 
