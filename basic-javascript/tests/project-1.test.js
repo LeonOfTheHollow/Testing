@@ -1,4 +1,4 @@
-/* eslint-disable prefer-destructuring */
+/* eslint-disable prefer-destructuring, arrow-parens */
 
 const assert = require('chai').assert;
 const funcs = require('../src/project-1');
@@ -309,44 +309,80 @@ describe('Project-1 Functions', () => {
   });
 
   describe('`combineNames`', () => {
+    const combineNames = funcs.combineNames;
     it('should be a function', () => {
-      const combineNames = funcs.combineNames;
       assert.typeOf(combineNames, 'function');
+    });
+    it('should return a string', () => {
+      assert.typeOf(combineNames('hello', 'world'), 'string');
+    });
+    it('should return the two args embedded in a string.', () => {
+      assert.strictEqual(combineNames('Max', 'Headroom'), 'Max Headroom');
     });
   });
 
   describe('`getGreeting`', () => {
+    const getGreeting = funcs.getGreeting;
     it('should be a function', () => {
-      const getGreeting = funcs.getGreeting;
       assert.typeOf(getGreeting, 'function');
+    });
+    it('should return a string', () => {
+      assert.typeOf(getGreeting('foo'), 'string');
+    });
+    it('should return the arg embedded in the Hello message', () => {
+      assert.strictEqual(getGreeting('Max'), 'Hello Max!');
     });
   });
 
   describe('`getRectangleArea`', () => {
+    const getRectangleArea = funcs.getRectangleArea;
     it('should be a function', () => {
-      const getRectangleArea = funcs.getRectangleArea;
       assert.typeOf(getRectangleArea, 'function');
+    });
+    it('should return NaN if either argument is not a number', () => {
+      assert.isNotOk(getRectangleArea('foo'));
+    });
+    it('should return the product of the args (rectangle area formula)', () => {
+      assert.strictEqual(getRectangleArea(2, 2), 4);
     });
   });
 
   describe('`getTriangleArea`', () => {
+    const getTriangleArea = funcs.getTriangleArea;
     it('should be a function', () => {
-      const getTriangleArea = funcs.getTriangleArea;
       assert.typeOf(getTriangleArea, 'function');
+    });
+    it('should return NaN if either argument is not a number', () => {
+      assert.isNotOk(getTriangleArea('foo'));
+    });
+    it('should return half the product of the args (triangle area formula)', () => {
+      assert.strictEqual(getTriangleArea(2, 2), 2);
     });
   });
 
   describe('`getCircleArea`', () => {
+    const getCircleArea = funcs.getCircleArea;
     it('should be a function', () => {
-      const getCircleArea = funcs.getCircleArea;
       assert.typeOf(getCircleArea, 'function');
+    });
+    it('should return NaN if the argument is not a number', () => {
+      assert.isNotOk(getCircleArea('foo'));
+    });
+    it('should return the product of argument squared and pi (circle area formula)', () => {
+      assert.strictEqual(getCircleArea(2), 2 * 2 * Math.PI);
     });
   });
 
   describe('`getRectangularPrismVolume`', () => {
+    const getRectangularPrismVolume = funcs.getRectangularPrismVolume;
     it('should be a function', () => {
-      const getRectangularPrismVolume = funcs.getRectangularPrismVolume;
       assert.typeOf(getRectangularPrismVolume, 'function');
+    });
+    it('should return NaN if any argument is not a number', () => {
+      assert.isNotOk(getRectangularPrismVolume('foo'));
+    });
+    it('should return the product of the three arguments (rectangular prism volume formula', () => {
+      assert.strictEqual(getRectangularPrismVolume(2, 2, 2), 8);
     });
   });
 });
