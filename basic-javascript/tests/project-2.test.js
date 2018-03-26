@@ -109,12 +109,24 @@ describe('Project-2 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(isPrime, 'function');
     });
+    it('should return a boolean', () => {
+      assert.typeOf(isPrime(10), 'boolean');
+    });
+    it('should return true if the number is prime', () => {
+      assert.isTrue(isPrime(7));
+    });
+    it('should return false if the number is not prime', () => {
+      assert.isFalse(isPrime(6));
+    });
   });
 
   describe('`returnFirst`', () => {
     const returnFirst = funcs.returnFirst;
     it('should be a function', () => {
       assert.typeOf(returnFirst, 'function');
+    });
+    it('should return the first item in an array', () => {
+      assert.strictEqual(returnFirst(['bacon', 'eggs', 'toast']), 'bacon');
     });
   });
 
@@ -123,12 +135,21 @@ describe('Project-2 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(returnLast, 'function');
     });
+    it('should return the last item in an array', () => {
+      assert.strictEqual(returnLast(['bacon', 'eggs', 'toast']), 'toast');
+    });
   });
 
   describe('`getArrayLength`', () => {
     const getArrayLength = funcs.getArrayLength;
     it('should be a function', () => {
       assert.typeOf(getArrayLength, 'function');
+    });
+    it('should return a number', () => {
+      assert.typeOf(getArrayLength(['bacon', 'eggs', 'toast']), 'number');
+    });
+    it('should return the length of the array', () => {
+      assert.strictEqual(getArrayLength(['bacon', 'eggs', 'toast']), 3);
     });
   });
 
