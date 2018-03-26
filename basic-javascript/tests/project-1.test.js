@@ -11,6 +11,7 @@ const funcs = require('../src/project-1');
 // hint 2. - you should test to see if the expected return output is of a specified type, as well as the correct outcome.
 
 describe('Project-1 Functions', () => {
+  const testNumbers = [2, 3, 4, 5, 10, -2, -3, -4, -5, -10, 17.2, 81.56];
 
   describe('`multiplyByTen`', () => {
     const multiplyByTen = funcs.multiplyByTen;
@@ -18,7 +19,6 @@ describe('Project-1 Functions', () => {
       assert.typeOf(multiplyByTen, 'function');
     });
     it('should return a Number multiplied by ten.', () => {
-      const testNumbers = [2, 3, 4, 5, 10];
       testNumbers.forEach(v => {
         assert.typeOf(multiplyByTen(v), 'Number');
         assert.strictEqual(multiplyByTen(v), v * 10);
@@ -32,7 +32,6 @@ describe('Project-1 Functions', () => {
       assert.typeOf(subtractFive, 'function');
     });
     it('should return a number five less than the given number.', () => {
-      const testNumbers = [2, 3, 4, 5, 10];
       testNumbers.forEach(v => {
         assert.typeOf(subtractFive(v), 'Number');
         assert.strictEqual(subtractFive(v), v - 5);
@@ -45,7 +44,7 @@ describe('Project-1 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(areSameLength, 'function');
     });
-    it('should return a Boolean true or false', () => {
+    it('should return a Boolean', () => {
       assert.typeOf(areSameLength('Test', 'Test'), 'Boolean');
     });
     it('should return true if both strings are of the same length.', () => {
@@ -61,6 +60,15 @@ describe('Project-1 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(areEqual, 'function');
     });
+    it('should return a Boolean.', () => {
+      assert.typeOf(areEqual(2, 2), 'Boolean');
+    });
+    it('should return true if both arguments are equal.', () => {
+      assert.isTrue(areEqual(2, 2));
+    });
+    it('should return false if both arguments are not equal.', () => {
+      assert.isFalse(areEqual(2, 3));
+    });
   });
 
   describe('`lessThanNinety`', () => {
@@ -68,40 +76,94 @@ describe('Project-1 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(lessThanNinety, 'function');
     });
+    it('should return a Boolean.', () => {
+      assert.typeOf(lessThanNinety(69), 'Boolean');
+    });
+    it('should return true if a number is less than 90.', () => {
+      assert.isTrue(lessThanNinety(89));
+    });
+    it('should return false if a number is not less than 90.', () => {
+      assert.isFalse(lessThanNinety(91));
+    });
   });
 
   describe('`greaterThanFifty`', () => {
+    const greaterThanFifty = funcs.greaterThanFifty;
     it('should be a function', () => {
-      const greaterThanFifty = funcs.greaterThanFifty;
       assert.typeOf(greaterThanFifty, 'function');
+    });
+    it('should return a Boolean.', () => {
+      assert.typeOf(greaterThanFifty(69), 'Boolean');
+    });
+    it('should return true if a number is greater than 50.', () => {
+      assert.isTrue(greaterThanFifty(51));
+    });
+    it('should return false if a number is not greater than 50.', () => {
+      assert.isFalse(greaterThanFifty(49));
     });
   });
 
   describe('`add`', () => {
+    const add = funcs.add;
     it('should be a function', () => {
-      const add = funcs.add;
       assert.typeOf(add, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(add(1, 3), 'number');
+    });
+    it('should return the sum of two numbers.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(add(v, 5), v + 5);
+        assert.strictEqual(add(v, -5), v + -5);
+      });
     });
   });
 
   describe('`subtract`', () => {
+    const subtract = funcs.subtract;
     it('should be a function', () => {
-      const subtract = funcs.subtract;
       assert.typeOf(subtract, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(subtract(1, 3), 'number');
+    });
+    it('should return the difference between two numbers.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(subtract(v, 5), v - 5);
+        assert.strictEqual(subtract(v, -5), v - -5);
+      });
     });
   });
 
   describe('`divide`', () => {
+    const divide = funcs.divide;
     it('should be a function', () => {
-      const divide = funcs.divide;
       assert.typeOf(divide, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(divide(7, 14), 'number');
+    });
+    it('should return the quotient of two numbers.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(divide(v, 10), v / 10);
+        assert.strictEqual(divide(v, 82.1), v / 82.1);
+      });
     });
   });
 
   describe('`multiply`', () => {
+    const multiply = funcs.multiply;
     it('should be a function', () => {
-      const multiply = funcs.multiply;
       assert.typeOf(multiply, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(multiply(7, 14), 'number');
+    });
+    it('should return the product of two numbers.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(multiply(v, 10), v * 10);
+        assert.strictEqual(multiply(v, 82.1), v * 82.1);
+      });
     });
   });
 
