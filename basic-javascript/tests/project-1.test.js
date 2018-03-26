@@ -16,7 +16,12 @@ describe('Project-1 Functions', () => {
       const multiplyByTen = funcs.multiplyByTen;
       assert.typeOf(multiplyByTen, 'function');
     });
-    // begin here
+    it('should return a number multiplied by ten', () => {
+      const testNumbers = [2, 3, 4, 5, 10]
+      testNumbers.forEach(v => {
+        assert.strictEqual(funcs.multiplyByTen(v), v * 10);
+      });
+    });
   });
 
   describe('`subtractFive`', () => {
