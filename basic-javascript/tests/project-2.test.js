@@ -158,6 +158,12 @@ describe('Project-2 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(incrementByOne, 'function');
     });
+    it('should return an array', () => {
+      assert.typeOf(incrementByOne([1, 2, 3]), 'array');
+    });
+    it('should increment each value in an array by 1', () => {
+      assert.strictEqual
+    })
   });
 
   describe('`addItemToArray`', () => {

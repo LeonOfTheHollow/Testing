@@ -18,8 +18,8 @@ chai.use(sinonChai);
 
 describe('Arrays', () => {
   describe('`each`', () => {
+    const each = arrayFunctions.each;
     it('should be a function', () => {
-      const each = arrayFunctions.each;
       expect(each).to.be.a('string');
     });
     // begin here
