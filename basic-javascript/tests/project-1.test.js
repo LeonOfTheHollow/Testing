@@ -220,44 +220,91 @@ describe('Project-1 Functions', () => {
   });
 
   describe('`square`', () => {
+    const square = funcs.square;
     it('should be a function', () => {
-      const square = funcs.square;
       assert.typeOf(square, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(square(5), 'number');
+    });
+    it('should return the square of the input number.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(square(v), v * v);
+      });
     });
   });
 
   describe('`cube`', () => {
+    const cube = funcs.cube;
     it('should be a function', () => {
-      const cube = funcs.cube;
       assert.typeOf(cube, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(cube(5), 'number');
+    });
+    it('should return the cube of the input number.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(cube(v), v * v * v);
+      });
     });
   });
 
   describe('`raiseToPower`', () => {
+    const raiseToPower = funcs.raiseToPower;
     it('should be a function', () => {
-      const raiseToPower = funcs.raiseToPower;
       assert.typeOf(raiseToPower, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(raiseToPower(5, 2), 'number');
+    });
+    it('should return the product of the exponent of the input number.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(raiseToPower(v, 2), v ** 2);
+        assert.strictEqual(raiseToPower(v, 3), v ** 3);
+      });
     });
   });
 
   describe('`roundNumber`', () => {
+    const roundNumber = funcs.roundNumber;
     it('should be a function', () => {
-      const roundNumber = funcs.roundNumber;
       assert.typeOf(roundNumber, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(roundNumber(5), 'number');
+    });
+    it('should return the rounded input number.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(roundNumber(v), Math.round(v));
+      });
     });
   });
 
   describe('`roundUp`', () => {
+    const roundUp = funcs.roundUp;
     it('should be a function', () => {
-      const roundUp = funcs.roundUp;
       assert.typeOf(roundUp, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(roundUp(5), 'number');
+    });
+    it('should return the rounded up input number.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(roundUp(v), Math.ceil(v));
+      });
     });
   });
 
   describe('`addExclamationPoint`', () => {
+    const addExclamationPoint = funcs.addExclamationPoint;
     it('should be a function', () => {
-      const addExclamationPoint = funcs.addExclamationPoint;
       assert.typeOf(addExclamationPoint, 'function');
+    });
+    it('should return a string', () => {
+      assert.typeOf(addExclamationPoint('hello'), 'string');
+    });
+    it('should insert a bang at the end of a string.', () => {
+      assert.strictEqual(addExclamationPoint('Hello'), 'Hello!');
     });
   });
 
