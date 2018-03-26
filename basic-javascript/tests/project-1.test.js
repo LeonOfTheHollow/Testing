@@ -168,23 +168,54 @@ describe('Project-1 Functions', () => {
   });
 
   describe('`getRemainder`', () => {
+    const getRemainder = funcs.getRemainder;
     it('should be a function', () => {
-      const getRemainder = funcs.getRemainder;
       assert.typeOf(getRemainder, 'function');
+    });
+    it('should return a number.', () => {
+      assert.typeOf(getRemainder(7, 14), 'number');
+    });
+    it('should return the remainer of two numbers.', () => {
+      testNumbers.forEach(v => {
+        assert.strictEqual(getRemainder(v, 10), v % 10);
+        assert.strictEqual(getRemainder(v, 82.1), v % 82.1);
+      });
     });
   });
 
   describe('`isEven`', () => {
+    const isEven = funcs.isEven;
     it('should be a function', () => {
-      const isEven = funcs.isEven;
       assert.typeOf(isEven, 'function');
+    });
+    it('should return a Boolean.', () => {
+      assert.typeOf(isEven(4), 'Boolean');
+    });
+    it('should return true for even numbers.', () => {
+      assert.isTrue(isEven(4));
+      assert.isTrue(isEven(8));
+    });
+    it('should return false for odd numbers', () => {
+      assert.isFalse(isEven(9));
+      assert.isFalse(isEven(2379235));
     });
   });
 
   describe('`isOdd`', () => {
+    const isOdd = funcs.isOdd;
     it('should be a function', () => {
-      const isOdd = funcs.isOdd;
       assert.typeOf(isOdd, 'function');
+    });
+    it('should return a Boolean.', () => {
+      assert.typeOf(isOdd(4), 'Boolean');
+    });
+    it('should return true for odd numbers.', () => {
+      assert.isTrue(isOdd(5));
+      assert.isTrue(isOdd(7));
+    });
+    it('should return false for even numbers', () => {
+      assert.isFalse(isOdd(4));
+      assert.isFalse(isOdd(2379236));
     });
   });
 
