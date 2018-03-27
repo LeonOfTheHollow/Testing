@@ -162,14 +162,23 @@ describe('Project-2 Functions', () => {
       assert.typeOf(incrementByOne([1, 2, 3]), 'array');
     });
     it('should increment each value in an array by 1', () => {
-      assert.strictEqual
-    })
+      assert.deepEqual(incrementByOne([1, 2, 3, 4, 100]), [2, 3, 4, 5, 101]);
+    });
   });
 
   describe('`addItemToArray`', () => {
     const addItemToArray = funcs.addItemToArray;
     it('should be a function', () => {
       assert.typeOf(addItemToArray, 'function');
+    });
+    it('should return an array', () => {
+      const arr = ['dogs', 'cats', 'birds'];
+      assert.typeOf(addItemToArray(arr, 'fish'), 'array');
+    });
+    it('should add an item to the array', () => {
+      const arr = ['dogs', 'cats', 'birds'];
+      assert.deepEqual(addItemToArray(arr, 'lizards'), ['dogs', 'cats', 'birds', 'lizards']);
+      assert.strictEqual(arr.length, 4);
     });
   });
 
@@ -178,6 +187,15 @@ describe('Project-2 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(addItemToFront, 'function');
     });
+    it('should return an array', () => {
+      const arr = [2, 3, 4, 5];
+      assert.typeOf(addItemToFront(arr, 'one'), 'array');
+    });
+    it('should add item to the front of the array', () => {
+      const arr = [2, 3, 4, 5];
+      assert.deepEqual(addItemToFront(arr, 1), [1, 2, 3, 4, 5]);
+      assert.strictEqual(arr.length, 5);
+    });
   });
 
   describe('`wordsToSentence`', () => {
@@ -185,12 +203,28 @@ describe('Project-2 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(wordsToSentence, 'function');
     });
+    it('should return a string', () => {
+      assert.typeOf(wordsToSentence(['this', 'is', 'a', 'test']), 'string');
+    });
+    it('should create a string from an array of words', () => {
+      assert.strictEqual(wordsToSentence(['get', 'off', 'my', 'plane']), 'get off my plane');
+    });
   });
 
   describe('`contains`', () => {
     const contains = funcs.contains;
+    const testArr = ['bacon', 'sausages', 'eggs'];
     it('should be a function', () => {
       assert.typeOf(contains, 'function');
+    });
+    it('should return a boolean', () => {
+      assert.typeOf(contains(testArr, 'milk'), 'boolean');
+    });
+    it('should return true if an array contains the specified item', () => {
+      assert.isTrue(contains(testArr, 'eggs'));
+    });
+    it('should return false if an array does not contain the specified item', () => {
+      assert.isFalse(contains(testArr, 'toast'));
     });
   });
 
@@ -199,6 +233,12 @@ describe('Project-2 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(addNumbers, 'function');
     });
+    it('should return a number', () => {
+      assert.typeOf(addNumbers([5, 7, 9]), 'number');
+    });
+    it('should return the sum of all numbers in an array', () => {
+      assert.strictEqual(addNumbers([5, 7, 9]), 21);
+    });
   });
 
   describe('`averageTestScore`', () => {
@@ -206,12 +246,24 @@ describe('Project-2 Functions', () => {
     it('should be a function', () => {
       assert.typeOf(averageTestScore, 'function');
     });
+    it('should return a number', () => {
+      assert.typeOf(averageTestScore([20, 40, 60, 80]), 'number');
+    });
+    it('should return the average of an array of test scores', () => {
+      assert.strictEqual(averageTestScore([22, 45, 61, 87]), 53.75);
+    });
   });
 
   describe('`largestNumber`', () => {
     const largestNumber = funcs.largestNumber;
     it('should be a function', () => {
       assert.typeOf(largestNumber, 'function');
+    });
+    it('should return a number', () => {
+      assert.typeOf(largestNumber([20, 40, 60, 80]), 'number');
+    });
+    it('should return the larget number in an array of numbers', () => {
+      assert.strictEqual(largestNumber([20, 40, 60, 80]), 80);
     });
   });
 });
